@@ -1,3 +1,9 @@
+StackTooDeep Trello board: https://trello.com/b/MuAXYEde/stacktoodeep
+
+Ryan Lesson
+Chris Lee
+Jonathan Chen
+
 # Dbc Overflow
 
 ## Learning Competencies
