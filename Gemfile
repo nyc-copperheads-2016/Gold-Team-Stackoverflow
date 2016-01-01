@@ -32,7 +32,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+<<<<<<< 715c409d9d46f100f50b501bca87cc13caabf8c3
   gem 'pry'
+=======
+  gem 'pry-byebug'
+  gem 'simplecov', require: false
+>>>>>>> Add simplecov gem and rails rspec install
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
