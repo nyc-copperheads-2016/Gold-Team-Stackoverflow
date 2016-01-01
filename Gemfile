@@ -32,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
   gem 'simplecov', require: false
   gem 'rspec-rails'
   gem 'capybara'
