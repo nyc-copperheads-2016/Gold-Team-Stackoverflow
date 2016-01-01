@@ -32,7 +32,7 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="538" y="284" name="users">
+</datatypes><table x="620" y="413" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -46,11 +46,11 @@
 <part>id</part>
 </key>
 </table>
-<table x="333" y="134" name="questions">
+<table x="520" y="68" name="questions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
+<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
@@ -64,15 +64,15 @@
 <part>id</part>
 </key>
 </table>
-<table x="329" y="406" name="answers">
+<table x="152" y="445" name="answers">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
+<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="id_questions" null="1" autoincrement="0">
+<row name="question_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="questions" row="id" />
 </row>
@@ -86,22 +86,22 @@
 <part>id</part>
 </key>
 </table>
-<table x="89" y="246" name="comments">
+<table x="418" y="284" name="comments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_questions" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="questions" row="id" />
-</row>
 <row name="id_users" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="id_answers" null="1" autoincrement="0">
+<row name="commentable_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="answers" row="id" />
+<default>NULL</default><relation table="questions" row="id" />
+<relation table="answers" row="id" />
 </row>
+<row name="commentable_type" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
 <row name="response" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -109,22 +109,22 @@
 <part>id</part>
 </key>
 </table>
-<table x="853" y="262" name="votes">
+<table x="891" y="463" name="votes">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_questions" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="questions" row="id" />
-</row>
-<row name="id_users" null="1" autoincrement="0">
+<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="id_answers" null="1" autoincrement="0">
+<row name="votable_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="answers" row="id" />
+<default>NULL</default><relation table="questions" row="id" />
+<relation table="answers" row="id" />
 </row>
+<row name="votable_type" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <row name="up_vote?" null="1" autoincrement="0">
 <datatype>BINARY</datatype>
 <default>NULL</default></row>
