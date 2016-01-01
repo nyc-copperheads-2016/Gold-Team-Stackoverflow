@@ -1,3 +1,5 @@
+Circle CI Tests: [![Circle CI](https://circleci.com/gh/nyc-copperheads-2016/Gold-Team-Stackoverflow.svg?style=svg)](https://circleci.com/gh/nyc-copperheads-2016/Gold-Team-Stackoverflow)
+
 StackTooDeep Trello board: https://trello.com/b/MuAXYEde/stacktoodeep
 
 Ryan Lesson, Chris Lee, Jonathan Chen
