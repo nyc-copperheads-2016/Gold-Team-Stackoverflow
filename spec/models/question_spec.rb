@@ -6,9 +6,6 @@ RSpec.describe Question, type: :model do
 
   before(:each) do
     @comment= FactoryGirl.create(:comment_question)
-  end
-
-  before(:each) do
     @vote= FactoryGirl.create(:vote_question)
   end
 
