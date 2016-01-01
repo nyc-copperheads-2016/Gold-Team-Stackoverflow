@@ -7,6 +7,7 @@ RSpec.describe Comment, type: :model do
       ryan= User.new(username: "bigless", password: "hello")
       question= Question.new()
 
-
+    end
+  end
 
 end
