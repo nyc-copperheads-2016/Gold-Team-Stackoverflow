@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  before(:each) do
+    @comment= FactoryGirl.create(:comment_answer)
+    @vote= FactoryGirl.create(:vote_answer)
+  end
+
 end
