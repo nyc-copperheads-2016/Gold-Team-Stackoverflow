@@ -9,7 +9,6 @@ RSpec.describe Comment, type: :model do
 
   describe 'Polymorphism' do
     context 'Comment can only be associated with a question' do
-      binding.pry
       it {should belong_to(:commentable)}
     end
   end
