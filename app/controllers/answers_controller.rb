@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
   def create
     @answer=Answer.new(answer_params)
     if @answer.save
-      redirect_to :root
+      redirect_to @answer
     else
       render :new
     end
