@@ -9,19 +9,19 @@ RSpec.describe Question, type: :model do
     @vote= FactoryGirl.create(:vote_question)
   end
 
-  describe 'polymorphism' do
+  # describe 'polymorphism' do
 
-    context 'FactoryGirl'do
-      it 'Question polymorphism is associated' do
-        expect(@comment.commentable).to be_instance_of(Question)
-      end
+  #   context 'FactoryGirl'do
+  #     it 'Question polymorphism is associated' do
+  #       expect(@comment.commentable).to be_instance_of(Question)
+  #     end
 
-      it 'Question polymorphism is associated' do
-        expect(@vote.votable).to be_instance_of(Question)
-      end
-    end
+  #     it 'Question polymorphism is associated' do
+  #       expect(@vote.votable).to be_instance_of(Question)
+  #     end
+  #   end
 
-  end
+  # end
 
 
 end
