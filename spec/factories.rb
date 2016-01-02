@@ -1,4 +1,3 @@
-
 FactoryGirl.define do
 
 
@@ -6,7 +5,6 @@ FactoryGirl.define do
     username { Faker::Internet.user_name  }
     password 'password'
   end
-
 
   factory :question do
     title {Faker::Book.title}
@@ -18,7 +16,6 @@ FactoryGirl.define do
     association :commentable, factory: :question
     response {Faker::Hipster.sentence}
     association :user
-
   end
 
   factory :comment_answer, class: "Comment" do
@@ -27,19 +24,16 @@ FactoryGirl.define do
     association :user
   end
 
-
-   factory :vote_question, class: 'Vote' do
+  factory :vote_question, class: 'Vote' do
     association :votable, factory: :question
     upvote {false}
     association :user
-
   end
 
-   factory :vote_answer, class: 'Vote' do
+  factory :vote_answer, class: 'Vote' do
     association :votable, factory: :question
     upvote {false}
     association :user
-
   end
 
   factory :answer do
@@ -47,7 +41,6 @@ FactoryGirl.define do
     favorite {false}
     association :user
   end
-
 end
 
 
