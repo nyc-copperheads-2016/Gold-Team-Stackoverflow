@@ -12,6 +12,13 @@ FactoryGirl.define do
     association :user
   end
 
+  factory :answer do
+    content {Faker::Hipster.sentence}
+    favorite {false}
+    association :user
+    association :question
+  end
+
   factory :comment_question, class: "Comment" do
     association :commentable, factory: :question
     response {Faker::Hipster.sentence}
@@ -33,12 +40,6 @@ FactoryGirl.define do
   factory :vote_answer, class: 'Vote' do
     association :votable, factory: :question
     upvote {false}
-    association :user
-  end
-
-  factory :answer do
-    content {Faker::Hipster.sentence}
-    favorite {false}
     association :user
   end
 end
