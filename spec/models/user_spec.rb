@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  describe 'User' do
+  describe User do
 
     context 'Association' do
       it {should have_many (:answers)}

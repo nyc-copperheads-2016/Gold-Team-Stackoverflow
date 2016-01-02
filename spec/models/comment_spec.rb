@@ -8,7 +8,7 @@ RSpec.describe Comment, type: :model do
   end
 
 
-  describe 'Comment' do
+  describe Comment do
 
     context 'Association' do
       it {should belong_to(:commentable)}
