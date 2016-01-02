@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      redirect_to "/"
+      redirect_to :root
     else
-      redirect_to '/users/new'
+      render new_user_path
     end
   end
 
