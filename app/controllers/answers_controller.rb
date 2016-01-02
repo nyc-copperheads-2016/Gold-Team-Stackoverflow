@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
   def update
     @answer=Answer.find(params[:id])
     if @answer.update_attributes(answer_params)
-      render_to @answer
+      redirect_to @answer
     else
       render :edit
     end
