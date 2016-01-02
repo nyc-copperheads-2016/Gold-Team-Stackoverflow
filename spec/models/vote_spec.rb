@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Vote, type: :model do
 
-   describe 'Vote' do
+   describe Vote do
 
     context 'Association' do
       it {should belong_to (:voteable)}
