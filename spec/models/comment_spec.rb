@@ -6,6 +6,7 @@ RSpec.describe Comment, type: :model do
     @question = FactoryGirl.create(:comment_question)
     @answer = FactoryGirl.create(:comment_answer)
   end
+  binding.pry
 
   describe 'Polymorphism' do
 
