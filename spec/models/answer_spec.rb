@@ -9,11 +9,11 @@ RSpec.describe Answer, type: :model do
   end
 
   describe Answer, type: :model do
-
+    context "Associations" do
     it {should belong_to(:question)}
     it {should belong_to (:user)}
     it {should have_many (:comments)}
     it {should have_many (:votes)}
+    end
   end
-
 end
