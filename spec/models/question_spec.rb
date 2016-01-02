@@ -17,7 +17,7 @@ RSpec.describe Question, type: :model do
       end
 
       it 'Question polymorphism is associated' do
-        expect(@vote.votable).to be_instance_of(Question)
+        expect(@vote.voteable).to be_instance_of(Question)
       end
     end
 
