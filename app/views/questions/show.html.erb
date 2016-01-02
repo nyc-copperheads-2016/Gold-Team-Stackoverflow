@@ -6,3 +6,7 @@
 <p>
   <%= @question.body %>
 </p>
+
+<%=link_to 'Create Answer', new_question_answer_path(@question)%>
+
+<%= render @answers %>

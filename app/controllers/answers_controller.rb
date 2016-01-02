@@ -1,22 +1,19 @@
 class AnswersController < ApplicationController
 
-  def index
-    @answers= Answer.all
-  end
-
   def new
     @answer=Answer.new
+    @question=Question.find(params[:question_id])
   end
 
   def create
     @answer=Answer.new(answer_params)
+
     if @answer.save
       redirect_to @answer
     else
       render :new
     end
   end
-
 
   def show
     @answer=Answer.find(params[:id])
@@ -36,16 +33,18 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+
     answer=Answer.find(params[:id])
+    question=answer.question
     answer.delete
 
-    render :index
+    redirect_to question_path(question)
   end
 
   private
 
   def answer_params
-    params.require(:answer).permit(:content, :favorite)
+    params.require(:answer).permit(:content, :favorite,:user_id)
   end
 
 end
