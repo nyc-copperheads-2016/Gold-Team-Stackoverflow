@@ -17,7 +17,6 @@ FactoryGirl.define do
     favorite {false}
     association :question
     association :user
-
   end
 
   factory :comment_question, class: "Comment" do
@@ -33,13 +32,13 @@ FactoryGirl.define do
   end
 
   factory :vote_question, class: 'Vote' do
-    association :votable, factory: :question
+    association :voteable, factory: :question
     upvote {false}
     association :user
   end
 
   factory :vote_answer, class: 'Vote' do
-    association :votable, factory: :question
+    association :voteable, factory: :question
     upvote {false}
     association :user
   end

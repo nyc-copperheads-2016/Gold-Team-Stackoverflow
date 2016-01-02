@@ -8,12 +8,13 @@ RSpec.describe Answer, type: :model do
     @vote= FactoryGirl.create(:vote_answer)
   end
 
-  describe Answer, type: :model do
+  describe Answer do
+
     context "Associations" do
-    it {should belong_to(:question)}
-    it {should belong_to (:user)}
-    it {should have_many (:comments)}
-    it {should have_many (:votes)}
+      it {should belong_to(:question)}
+      it {should belong_to (:user)}
+      it {should have_many (:comments)}
+      it {should have_many (:votes)}
     end
   end
 end

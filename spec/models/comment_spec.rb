@@ -9,9 +9,10 @@ RSpec.describe Comment, type: :model do
 
 
   describe 'Comment' do
+
     context 'Association' do
-    it {should belong_to(:commentable)}
-    it {should belong_to (:user)}
+      it {should belong_to(:commentable)}
+      it {should belong_to (:user)}
     end
   end
 end
