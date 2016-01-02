@@ -21,7 +21,9 @@ RSpec.describe Question, type: :model do
       end
     end
 
-    context Question do
+  describe Question do
+
+    context 'Association' do
       it {should belong_to (:user)}
       it {should have_many (:comments)}
       it {should have_many (:votes)}
