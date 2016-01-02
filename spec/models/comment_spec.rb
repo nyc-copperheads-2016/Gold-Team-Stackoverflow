@@ -8,11 +8,11 @@ RSpec.describe Comment, type: :model do
   end
 
 
-  describe 'Polymorphism' do
+  describe Comment do
 
-    context 'Comment can only be associated with a question' do
-
+    context 'Association' do
       it {should belong_to(:commentable)}
+      it {should belong_to (:user)}
     end
   end
 end

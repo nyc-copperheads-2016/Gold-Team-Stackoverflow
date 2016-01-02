@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe User do
+
+    context 'Association' do
+      it {should have_many (:answers)}
+      it {should have_many (:comments)}
+      it {should have_many (:votes)}
+      it {should have_many (:questions)}
+    end
+  end
+
 end
