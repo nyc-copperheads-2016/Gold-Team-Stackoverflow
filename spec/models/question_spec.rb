@@ -20,7 +20,6 @@ RSpec.describe Question, type: :model do
         expect(@vote.votable).to be_instance_of(Question)
       end
     end
-
   end
 
 
