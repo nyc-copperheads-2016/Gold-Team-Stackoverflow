@@ -15,8 +15,9 @@ FactoryGirl.define do
   factory :answer do
     content {Faker::Hipster.sentence}
     favorite {false}
-    association :user
     association :question
+    association :user
+
   end
 
   factory :comment_question, class: "Comment" do
