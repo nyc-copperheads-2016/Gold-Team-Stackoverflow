@@ -8,8 +8,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    if question.save
+    @question = Question.new(question_params)
+    if @question.save
       redirect_to :root
     else
       render :new
@@ -18,17 +18,17 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers
   end
 
   def edit
     @question = Question.find(params[:id])
-
   end
 
   def update
-    question = Question.find(params[:id])
-    if question.update_attributes(question_params)
-      redirect_to question
+    @question = Question.find(params[:id])
+    if @question.update_attributes(question_params)
+      redirect_to @question
     else
       render :edit
     end
