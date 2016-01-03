@@ -2,14 +2,13 @@ class AnswersController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def new
-    @question = Question.find(params[:question_id])
     @answer = Answer.new
+    @question = Question.find(params[:question_id])
   end
 
   def create
-    @question = Question.find(params[:question_id])
     @answer = current_user.answers.new(answer_params)
-    @answer.question = @question
+    @answer.question = Question.find(params[:question_id])
 
     if @answer.save
       redirect_to question_path(@answer.question)
@@ -18,17 +17,14 @@ class AnswersController < ApplicationController
     end
   end
 
-  def show
-    @answer = Answer.find(params[:id])
-  end
-
   def edit
     @answer = Answer.find(params[:id])
+    @question = @answer.question
   end
 
   def update
     @answer = Answer.find(params[:id])
-    if @answer.update_attributes(answer_params)
+    if @answer.update(answer_params)
       redirect_to question_path(@answer.question)
     else
       render :edit
@@ -46,7 +42,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:content, :favorite, :user_id, :question_id)
+    params.permit(:content, :question_id)
   end
 
 end
