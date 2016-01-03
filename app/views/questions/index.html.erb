@@ -1,5 +1,7 @@
 <h3>
-  <%= link_to 'Ask a new question', new_question_path %>
+  <% if logged_in? %>
+    <%= link_to 'Ask a new question', new_question_path %>
+  <% end %>
 </h3>
 
 <h3>
