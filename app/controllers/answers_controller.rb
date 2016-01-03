@@ -18,10 +18,6 @@ class AnswersController < ApplicationController
     end
   end
 
-  def show
-    @answer = Answer.find(params[:id])
-  end
-
   def edit
     @answer = Answer.find(params[:id])
   end
