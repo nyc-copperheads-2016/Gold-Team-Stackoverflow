@@ -7,12 +7,14 @@
 </p>
 
 <p>
-  <%= form_tag question_answer_path(@question, @answer), method: :patch do %>
+  <%= form_for [@question, @answer
+    ], method: :patch do |f| %>
     <div>
-      <%= text_field_tag :content, @answer.content %>
+      <%= f.label :content%>
+      <%= f.text_field :content %>
     </div>
     <div>
-      <%= submit_tag %>
+      <%= f.submit %>
     </div>
   <% end %>
 </p>
