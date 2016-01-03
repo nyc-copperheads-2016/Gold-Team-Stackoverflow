@@ -2,14 +2,13 @@ class AnswersController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def new
-    @question = Question.find(params[:question_id])
     @answer = Answer.new
+    @question = Question.find(params[:question_id])
   end
 
   def create
-    @question = Question.find(params[:question_id])
     @answer = current_user.answers.new(answer_params)
-    @answer.question = @question
+    @answer.question = Question.find(params[:question_id])
 
     if @answer.save
       redirect_to question_path(@answer.question)
