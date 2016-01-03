@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :require_login, only: [:new, :create, :edit, :update]
+
   def index
     @questions = Question.all
   end

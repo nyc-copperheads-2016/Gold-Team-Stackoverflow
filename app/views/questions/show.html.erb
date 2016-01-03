@@ -1,12 +1,17 @@
 <h4>
   <%= link_to @question.title, question_path(@question) %>
 </h4>
-<%= link_to 'edit', edit_question_path(@question) %>
+<% if logged_in? %>
+  <%= link_to 'edit', edit_question_path(@question) %>
+<% end %>
+
 
 <p>
   <%= @question.body %>
 </p>
 
-<%=link_to 'Create Answer', new_question_answer_path(@question)%>
+<% if logged_in? %>
+  <%=link_to 'Create Answer', new_question_answer_path(@question)%>
+<% end %>
 
 <%= render @answers %>
