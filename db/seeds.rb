@@ -1,7 +1,12 @@
-User.create(username: 'admin', password: 'admin')
+admin = User.create!(username: 'admin', password: 'admin')
 
 5.times do
-  FactoryGirl.create(:question)
+  seed_question = FactoryGirl.create(:question)
+  5. times do
+    seed_question.answers.create!(content:'test content',
+                                      favorite: false,
+                                      user: admin)
+  end
 end
 
 FactoryGirl.create(:answer)
