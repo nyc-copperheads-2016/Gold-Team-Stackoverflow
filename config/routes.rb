@@ -14,4 +14,9 @@ Rails.application.routes.draw do
     resources :votes, only: [:create]
     resources :comments
   end
+
+  resources :questions do
+    resources :answers, except: [:index, :show]
+    resources :comment, except: [:index,:show,:edit]
+  end
 end
