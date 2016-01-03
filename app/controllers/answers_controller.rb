@@ -19,11 +19,12 @@ class AnswersController < ApplicationController
 
   def edit
     @answer = Answer.find(params[:id])
+    @question = @answer.question
   end
 
   def update
     @answer = Answer.find(params[:id])
-    if @answer.update_attributes(answer_params)
+    if @answer.update(answer_params)
       redirect_to question_path(@answer.question)
     else
       render :edit
@@ -41,7 +42,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:content, :favorite, :user_id, :question_id)
+    params.require(:answer).permit(:content, :question_id)
   end
 
 end

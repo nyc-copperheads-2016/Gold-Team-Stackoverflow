@@ -1,3 +1,13 @@
 <p>
-  <%= answer.content %>
+  <div>
+    <%= answer.content %>
+  </div>
+  <div>
+    by <%= answer.user.username %>
+  </div>
+  <% if current_user == answer.user %>
+    <div>
+      <%= link_to 'edit', edit_question_answer_path(answer.question, answer) %>
+    </div>
+  <% end %>
 </p>

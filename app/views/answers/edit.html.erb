@@ -1,1 +1,18 @@
-edit.html.erb
+<h4>
+  <%= link_to @question.title, question_path(@question) %>
+</h4>
+
+<p>
+  <%= @question.body %>
+</p>
+
+<p>
+  <%= form_tag question_answer_path(@question, @answer), method: :patch do %>
+    <div>
+      <%= text_field_tag :content, @answer.content %>
+    </div>
+    <div>
+      <%= submit_tag %>
+    </div>
+  <% end %>
+</p>
