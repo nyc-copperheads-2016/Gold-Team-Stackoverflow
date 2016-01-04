@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+  before_action :require_login, only: [:new, :create, :destroy]
 
   def new
     @comment=Comment.new
@@ -49,5 +49,3 @@ class CommentsController < ApplicationController
   end
 
 end
-
-
