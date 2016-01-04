@@ -1,4 +1,16 @@
 <p>
+  <% if logged_in? %>
+    <%= form_for answer, url: answer_votes_path(answer), method: :post do |f| %>
+      <%= hidden_field_tag 'vote', 'up' %>
+      <%= f.submit '+' %>
+    <% end %>
+    <%= answer.net_votes %>
+    <%= form_for answer, url: answer_votes_path(answer), method: :post do |f| %>
+      <%= hidden_field_tag 'vote', 'down' %>
+      <%= f.submit '-' %>
+    <% end %>
+    |
+  <% end %>
   <div>
     <%= answer.content %>
   </div>

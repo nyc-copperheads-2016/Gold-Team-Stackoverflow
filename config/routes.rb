@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :answers, except: [:index, :show]
-    resources :votes, except: [:index, :new, :show, :edit]
+    resources :votes, only: [:create]
+  end
+
+  resources :answers, except: [:index, :show] do
+    resources :votes, only: [:create]
   end
 end
