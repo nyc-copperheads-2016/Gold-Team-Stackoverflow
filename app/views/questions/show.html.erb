@@ -1,40 +1,39 @@
 <h4>
   <%= link_to @question.title, question_path(@question) %>
 </h4>
-<% if logged_in? %>
+
+<p>
   <%= form_for @question, url: question_votes_path(@question), method: :post do |f| %>
     <%= hidden_field_tag 'vote', 'up' %>
     <%= f.submit '+' %>
   <% end %>
+
   <%= @question.net_votes %>
+  <%= @question.body %>
+  <% if current_user == @question.user %>
+  <%= link_to 'edit', edit_question_path(@question) %>
+  <% end %>
+
   <%= form_for @question, url: question_votes_path(@question), method: :post do |f| %>
     <%= hidden_field_tag 'vote', 'down' %>
     <%= f.submit '-' %>
   <% end %>
-<% end %>
-<% if current_user == @question.user %>
-  <%= link_to 'edit', edit_question_path(@question) %>
-<% end %>
-
-<p>
-  <%= @question.body %>
 </p>
 
-<% if logged_in? %>
-  <div>
-    <%= link_to 'Create a comment', new_question_comment_path(@question) %>
-  </div>
-<% end %>
+<div>
+  <%= link_to 'Add Comment', new_question_comment_path(@question) %>
+</div>
 
 <div>
   Comments:
+  <p>
+    <%=render partial: "/comments/comment", locals: {comments: @question.comments}%>
+  </p>
 </div>
 
-<%=render partial: "/comments/comment", locals: {comments: @question.comments}%>
+  <%=link_to 'Add Answer', new_question_answer_path(@question)%>
 
-<% if logged_in? %>
-  <%=link_to 'Create Answer', new_question_answer_path(@question)%>
-<% end %>
-
-
-<%= render @answers %>
+<section>
+  Answers:
+  <%= render @answers %>
+</section>
