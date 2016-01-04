@@ -20,27 +20,25 @@ class CommentsController < ApplicationController
        if params[:question_id]
         redirect_to question_path(q_or_a)
       elsif params[:answer_id]
-        redirect_to question_path(q_or_a.question)
+        redirect_to question_answers_path(q_or_a.question)
       end
     else
       if params[:question_id]
         render :root
       elsif params[:answer_id]
-        render question_path(q_or_a.question)
+        render question_answers_path(q_or_a.question)
       end
     end
   end
 
-  def show
-
-  end
-
-  def update
-
-  end
-
   def destroy
+    comment= Comment.find(params[:id])
 
+    if comment.delete
+      redirect_to question_answers_path(comment)
+    else
+      render question_answers_path(comment)
+    end
   end
 
   private
