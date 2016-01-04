@@ -26,9 +26,7 @@
 
 <div>
   Comments:
-  <p>
-    <%=render partial: "/comments/comment", locals: {comments: @question.comments}%>
-  </p>
+  <%=render partial: "/comments/comment", locals: {comments: @question.comments}%>
 </div>
 
   <%=link_to 'Add Answer', new_question_answer_path(@question)%>
