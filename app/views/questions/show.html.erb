@@ -20,9 +20,11 @@
   <%= @question.body %>
 </p>
 
-<div>
-  <%= link_to 'Create a comment', new_question_comment_path(@question) %>
-</div>
+<% if logged_in? %>
+  <div>
+    <%= link_to 'Create a comment', new_question_comment_path(@question) %>
+  </div>
+<% end %>
 
 <div>
   Comments:
