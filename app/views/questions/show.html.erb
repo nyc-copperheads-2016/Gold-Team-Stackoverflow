@@ -23,7 +23,7 @@
 <div>
   Comments:
 </div>
-
+<%= link_to 'Create a comment', new_question_comment_path(@question) %>
 <%=render partial: "/comments/comment", locals: {comments: @question.comments}%>
 
 <% if logged_in? %>
