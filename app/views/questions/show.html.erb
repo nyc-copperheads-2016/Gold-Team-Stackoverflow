@@ -14,7 +14,9 @@
   <%= link_to 'edit', edit_question_path(@question) %>
   <% end %>
 
-  <%= form_for @question, url: question_votes_path(@question), method: :post do |f| %>
+  QID: <%= button_to 'Downvote', question_votes_path(@question, vote: 'down') %> <br>
+
+  <%= form_for [@question, @question.votes.new] do |f| %>
     <%= hidden_field_tag 'vote', 'down' %>
     <%= f.submit '-' %>
   <% end %>
