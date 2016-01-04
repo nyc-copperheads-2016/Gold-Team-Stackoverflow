@@ -7,16 +7,11 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers, except: [:index, :show]
     resources :votes, only: [:create]
-    resources :comments
+    resources :comments, except: [:show,:index]
   end
 
   resources :answers, except: [:index, :show] do
     resources :votes, only: [:create]
     resources :comments
-  end
-
-  resources :questions do
-    resources :answers, except: [:index, :show]
-    resources :comment, except: [:index,:show,:edit]
   end
 end
