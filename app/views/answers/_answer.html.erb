@@ -17,10 +17,13 @@
   <div>
     by <%= answer.user.username %>
     <% if current_user == answer.user %>
-      |
-      <%= link_to 'edit', edit_question_answer_path(answer.question, answer) %>
-      |
       <%= link_to 'delete', "/questions/#{answer.question.id}/answers/#{answer.id}", method: :delete %>
     <% end %>
+    <div>
+
+    </div>
+    <div>
+      <%=render partial: "/comments/comment", locals: {comments: answer.comments}%>
+    </div>
   </div>
 </p>
