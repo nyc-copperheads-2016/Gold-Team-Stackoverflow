@@ -12,11 +12,23 @@ class CommentsController < ApplicationController
       q_or_a = Answer.find(params[:answer_id])
     end
 
-    comment = q_or_a.votes.find_or_initialize_by(user:current_user)
+    comment = q_or_a.comments.find_or_initialize_by(comment_params)
 
-    if pat
+    comment.user= current_user
 
-
+    if comment.save
+       if params[:question_id]
+        redirect_to question_path(q_or_a)
+      elsif params[:answer_id]
+        redirect_to question_path(q_or_a.question)
+      end
+    else
+      if params[:question_id]
+        render :root
+      elsif params[:answer_id]
+        render question_path(q_or_a.question)
+      end
+    end
   end
 
   def show
@@ -31,4 +43,12 @@ class CommentsController < ApplicationController
 
   end
 
+  private
+
+  def comment_params
+    params.require(:comment).permit(:response)
+  end
+
 end
+
+
