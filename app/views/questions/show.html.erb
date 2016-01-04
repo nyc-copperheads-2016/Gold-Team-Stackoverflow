@@ -1,6 +1,17 @@
 <h4>
   <%= link_to @question.title, question_path(@question) %>
 </h4>
+<% if logged_in? %>
+  <%= form_for @question, url: question_votes_path(@question), method: :post do |f| %>
+    <%= hidden_field_tag 'vote', 'up' %>
+    <%= f.submit '+' %>
+  <% end %>
+  <%= @question.net_votes %>
+  <%= form_for @question, url: question_votes_path(@question), method: :post do |f| %>
+    <%= hidden_field_tag 'vote', 'down' %>
+    <%= f.submit '-' %>
+  <% end %>
+<% end %>
 <% if current_user == @question.user %>
   <%= link_to 'edit', edit_question_path(@question) %>
 <% end %>

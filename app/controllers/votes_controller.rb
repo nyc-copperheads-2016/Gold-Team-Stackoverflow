@@ -18,7 +18,7 @@ class VotesController < ApplicationController
 
     if vote.save
       if params[:question_id]
-        redirect_to :root
+        redirect_to question_path(q_or_a)
       elsif params[:answer_id]
         redirect_to question_path(q_or_a.question)
       end
