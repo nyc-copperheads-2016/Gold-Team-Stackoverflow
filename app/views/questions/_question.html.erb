@@ -1,21 +1,18 @@
-<h4>
-  <% if logged_in? %>
-    <%= form_for question, url: question_votes_path(question), method: :post do |f| %>
-      <%= hidden_field_tag 'vote', 'up' %>
-      <%= f.submit '+' %>
-    <% end %>
+<%= form_for question, url: question_votes_path(question), method: :post do |f| %>
+  <%= hidden_field_tag 'vote', 'up' %>
+  <%= f.submit '+' %>
+<% end %>
+  <h4>
     <%= question.net_votes %>
-    <%= form_for question, url: question_votes_path(question), method: :post do |f| %>
-      <%= hidden_field_tag 'vote', 'down' %>
-      <%= f.submit '-' %>
-    <% end %>
-    |
-  <% end %>
-  <%= link_to question.title, question_path(question) %>
-  <% if current_user == question.user %>
+    <%= link_to question.title, question_path(question) %>
+    <% if current_user == question.user %>
     |
     <%= link_to 'edit', edit_question_path(question) %>
     |
     <%= link_to 'delete', "/questions/#{question.id}/", method: :delete %>
-  <% end %>
-</h4>
+    <% end %>
+  </h4>
+<%= form_for question, url: question_votes_path(question), method: :post do |f| %>
+  <%= hidden_field_tag 'vote', 'down' %>
+  <%= f.submit '-' %>
+<% end %>
