@@ -20,8 +20,15 @@
   <%= @question.body %>
 </p>
 
+<div>
+  Comments:
+</div>
+
+<%=render partial: "/comments/comment", locals: {comments: @question.comments}%>
+
 <% if logged_in? %>
   <%=link_to 'Create Answer', new_question_answer_path(@question)%>
 <% end %>
+
 
 <%= render @answers %>
