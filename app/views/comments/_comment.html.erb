@@ -1,9 +1,9 @@
-<div class= "comment">
-  <%comments.each do |comment|%>
-    <%= comment.response %>
-
-    <div>
-     by <%= comment.user.username %>
-    </div>
-  <%end%>
-</div>
+  <div class= "comment">
+    <%comments.each do |comment|%>
+      <p>
+        <%= comment.response %>
+        <br>
+        by <%= comment.user.username %>
+     </p>
+    <%end%>
+  </div>
