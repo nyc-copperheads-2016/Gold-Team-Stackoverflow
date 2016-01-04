@@ -1,21 +1,20 @@
 <p>
-  <% if logged_in? %>
-    <%= form_for answer, url: answer_votes_path(answer), method: :post do |f| %>
-      <%= hidden_field_tag 'vote', 'up' %>
-      <%= f.submit '+' %>
-    <% end %>
-    <div>
-      <%= answer.net_votes %>
-      <%= answer.content %>
-      <% if current_user == answer.user %>
-      <%= link_to 'delete', "/questions/#{answer.question.id}/answers/#{answer.id}", method: :delete %>
-      <% end %>
-    </div>
-    <%= form_for answer, url: answer_votes_path(answer), method: :post do |f| %>
-      <%= hidden_field_tag 'vote', 'down' %>
-      <%= f.submit '-' %>
-    <% end %>
+  <%= form_for answer, url: answer_votes_path(answer), method: :post do |f| %>
+    <%= hidden_field_tag 'vote', 'up' %>
+    <%= f.submit '+' %>
   <% end %>
+  <div>
+    <%= answer.net_votes %>
+    <%= answer.content %>
+    <% if current_user == answer.user %>
+    <%= link_to 'delete', "/questions/#{answer.question.id}/answers/#{answer.id}", method: :delete %>
+    <% end %>
+  </div>
+  <%= form_for answer, url: answer_votes_path(answer), method: :post do |f| %>
+    <%= hidden_field_tag 'vote', 'down' %>
+    <%= f.submit '-' %>
+  <% end %>
+
   <div>
     by <%= answer.user.username %>
     <div>
