@@ -2,17 +2,6 @@
   <%comments.each do |comment|%>
     <%= comment.response %>
 
-    <% if current_user == comment.user %>
-
-      <%if comment.commentable_type == "Question"%>
-      |
-        <%= link_to 'delete', "/questions/#{comment.commentable.id}/comments/#{comment.id}", method: :delete %>
-      <%else%>
-      |
-        <%= link_to 'delete', "/answers/#{comment.commentable.id}/comments/#{comment.id}", method: :delete %>
-     <% end %>
-    <% end %>
-
     <div>
      by <%= comment.user.username %>
     </div>

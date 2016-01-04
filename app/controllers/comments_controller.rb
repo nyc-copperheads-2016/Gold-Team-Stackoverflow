@@ -34,12 +34,11 @@ class CommentsController < ApplicationController
 
 
   def destroy
-    comment= Comment.find(params[:id])
-
+    comment= Comment.find_by(commentable_id:params[:id])
     if comment.delete
-      redirect_to question_answers_path(comment)
+      redirect_to questions_path(comment.commentable.id)
     else
-      render question_answers_path(comment)
+      render questions_path(comment.commentable.id)
     end
   end
 

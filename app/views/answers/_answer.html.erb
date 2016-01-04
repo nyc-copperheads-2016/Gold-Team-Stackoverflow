@@ -20,6 +20,9 @@
       <%= link_to 'delete', "/questions/#{answer.question.id}/answers/#{answer.id}", method: :delete %>
     <% end %>
     <div>
+
+    </div>
+    <div>
       <%=render partial: "/comments/comment", locals: {comments: answer.comments}%>
     </div>
   </div>
