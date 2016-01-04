@@ -1,14 +1,68 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>GoldTeamStackoverflow</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class = "sticky">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <%= link_to 'StackTooDeep!', :root %>
+            </h1>
+          </li>
+           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <li class="toggle-topbar menu-icon">
+            <a href="#"><span>Menu</span></a>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <% if current_user %>
+              <li class="active">
+                <%= link_to 'Logout', session_path(current_user.id), method: "delete" %>
+              </li>
+            <% else %>
+              <li class="active">
+                <%= link_to 'Login', new_session_path %>
+              </li>
+              <li class="active">
+                <%= link_to 'Signup', new_user_path %>
+              </li>
+            <% end %>
+          </ul>
+
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li>
+              <% if current_user %>
+                Welcome <%= current_user.username %>
+              <% end %>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <section class="row">
+      <div class="small-1 large-2 columns"></div>
+        <div class="small-11 large-8 columns">
+          <%= yield %>
+        </div>
+      <div class="small-1 large-2 columns"></div>
+    </section>
+
+  </body>
 </html>

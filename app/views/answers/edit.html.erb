@@ -1,0 +1,20 @@
+<h4>
+  <%= link_to @question.title, question_path(@question) %>
+</h4>
+
+<p>
+  <%= @question.body %>
+</p>
+
+<p>
+  <%= form_for [@question, @answer
+    ], method: :patch do |f| %>
+    <div>
+      <%= f.label :content%>
+      <%= f.text_field :content %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</p>
